@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(120deg, #f0f0f0, #e8e8e8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.counter-box {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  animation: popUp 1s ease-in-out;
+}
+
+.counter {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 700;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.counter.max {
+  color: #27ae60;
+  transform: scale(1.2) rotate(5deg);
+  animation: maxPulse 1s infinite alternate;
+}
+
+.counter.min {
+  color: #c0392b;
+  transform: scale(0.9) rotate(-5deg);
+  animation: minPulse 1s infinite alternate;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  background: #3498db;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: #2980b9;
+}
+
+.add {
+  background: #2ecc71;
+}
+
+.add:hover {
+  background: #27ae60;
+}
+
+.remove {
+  background: #e74c3c;
+}
+
+.remove:hover {
+  background: #c0392b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes maxPulse {
+  0% {
+    text-shadow: 0 0 10px #27ae60;
+  }
+  100% {
+    text-shadow: 0 0 20px #27ae60;
+  }
+}
+
+@keyframes minPulse {
+  0% {
+    text-shadow: 0 0 10px #c0392b;
+  }
+  100% {
+    text-shadow: 0 0 20px #c0392b;
+  }
+}
