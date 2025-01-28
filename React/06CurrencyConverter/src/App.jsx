@@ -27,9 +27,7 @@ function App() {
     };
 
     return (
-        <div
-            className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-slate-500 to-slate-800 p-4"
-        >
+        <div className="w-full h-screen flex items-center justify-center  bg-slate-800 p-4">
             <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-6">
                 <h1 className="text-center text-3xl font-semibold text-white mb-6 animate-fadeIn">
                     Currency Converter
@@ -54,7 +52,7 @@ function App() {
                         <button
                             type="button"
                             onClick={swap}
-                            className="transition-transform duration-300 transform hover:rotate-180 bg-blue-700 text-white rounded-full p-3 shadow-lg"
+                            className="transition-transform duration-300 transform hover:rotate-180 bg-gray-700 text-white rounded-full p-3 shadow-lg"
                         >
                             ⇅ {/* Unicode for swap icon */}
                         </button>
@@ -67,6 +65,7 @@ function App() {
                             onCurrencyChange={(currency) => setTo(currency)}
                             selectCurrency={to}
                             amountDisable
+                            className="bg-slate-700"
                         />
                     </div>
                     <button
