@@ -1,11 +1,13 @@
 import './App.css'
 import React from 'react';
-function App() {
+
+import { Button } from './components/ui/button.tsx'
+
+
+export default function Home() {
   return (
-    <>
-    <h1 className='font-semibold text-2xl text-gray-300 p-4 mb-4'>Tailwind Test  </h1>
-    </>
+    <div>
+      <Button>Click me</Button>
+    </div>
   )
 }
-
-export default App
