@@ -8,3 +8,4 @@ export default defineConfig({
     '@': '/src', // Add your alias here
   }
 })
+// placement chaiyeee
