@@ -7,7 +7,7 @@ import { Button } from './components/ui/button.tsx'
 export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
+      <h1 className='text-2xl'>HEllo</h1>
     </div>
   )
 }
