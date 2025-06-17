@@ -1,5 +1,4 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
 import './App.css'
 
 const App = () => {
@@ -32,16 +31,11 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-slate-800 flex items-center justify-center p-4">
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-gray-50 shadow-2xl rounded-2xl p-8 max-w-md w-full text-center"
-      >
+      <div className="bg-gray-50 shadow-2xl rounded-2xl p-8 max-w-md w-full text-center">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Password Generator</h1>
         <p
           ref={passwordRef}
-          className="text-lg font-mono bg-gray-100 p-3 rounded-lg mb-4 select-all transition duration-300 ease-in-out"
+          className="text-lg font-mono bg-gray-100 p-3 rounded-lg mb-4 select-all"
         > 
           {password || "Your Secure Password will be displayed here"}
         </p>
@@ -90,24 +84,20 @@ const App = () => {
 
         {/* Buttons */}    
         <div className="mt-6 space-y-4 p-3 flex flex-col">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={generatePassword}
-            className="bg-slate-800 text-white cursor-pointer font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            className="bg-slate-800 text-white cursor-pointer font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             Generate Password
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          </button>
+          <button
             onClick={copyToClipboard}
-            className="bg-green-500 cursor-pointer text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+            className="bg-green-500 cursor-pointer text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400"
           >
             Copy to Clipboard
-          </motion.button>
+          </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
