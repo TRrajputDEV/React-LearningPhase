@@ -20,7 +20,7 @@ function App() {
 
       {/* Button Panel */}
       <div className="flex flex-wrap fixed justify-center bottom-12 inset-x-0 px-2">
-        <div className="flex flex-wrap justify-center gap-3 shadow-xl bg-white px-5 py-4 rounded-3xl backdrop-blur-sm bg-opacity-80">
+        <div className="flex flex-wrap justify-center gap-3 shadow-xl bg-white dark:bg-slate-800 dark:text-white px-5 py-4 rounded-3xl backdrop-blur-sm bg-opacity-80">
           {/* Buttons */}
 
 
@@ -34,12 +34,6 @@ function App() {
               {bgColor.charAt(0).toUpperCase() + bgColor.slice(1)}
             </button>
           ))}
-
-
-
-
-
-
           {/* Random Color Button */}
           <button
             onClick={getRandomColor}

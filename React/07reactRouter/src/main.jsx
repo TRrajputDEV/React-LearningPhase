@@ -14,8 +14,8 @@ import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
-      <Route path='' element={<App />} />
-      <Route path='home' element={<Home />} />
+      < Route path='app' element={<App/>}  />
+      <Route path='' element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='contact' element={<Contact />} />
       <Route path='user/:userid' element={<User />} />
@@ -28,8 +28,19 @@ const router = createBrowserRouter(
   )
 )
 
+const router2 = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Layout/>}>
+
+      <Route path='' element={<Home/>}/>
+      {/* <Route path='home' element={<Home/>}/> */}
+      <Route path='about' element ={<About/>}/>
+    </Route>
+  )
+)
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
     <RouterProvider router={router} />
-  </React.StrictMode>,
+
 )
