@@ -1,15 +1,8 @@
-import Navbar from './components/Navbar'
-import Herosection from './components/herosection'
-import Demo from './components/Demo'
-function App() {
+import React from 'react'
 
+export default function App() {
   return (
-    <>  
-    <Navbar/>
-    <Herosection/>
-    <Demo/>
-    </>
+    <div>App</div>
   )
 }
-
-export default App
+  
