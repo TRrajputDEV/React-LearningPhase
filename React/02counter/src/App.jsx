@@ -1,3 +1,4 @@
+// ____ Revision of functional updater and react double mounting and basic dependency array of call use effect learnt. _________ -- 9/10/2025/
 import { useEffect, useState } from 'react';
 import './App.css';
 //  learnt about mounting and double rendering by strictmode....
