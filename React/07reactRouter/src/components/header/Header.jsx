@@ -73,7 +73,7 @@ export default function Header() {
                                     }
                                 >
                                     Github
-                                </NavLink>
+                                </NavLink>   
                             </li>
                             
                             <li>

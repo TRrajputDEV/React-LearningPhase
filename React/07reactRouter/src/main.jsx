@@ -28,16 +28,9 @@ const router = createBrowserRouter(
   )
 )
 
-const router2 = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<Layout/>}>
-
-      <Route path='' element={<Home/>}/>
-      {/* <Route path='home' element={<Home/>}/> */}
-      <Route path='about' element ={<About/>}/>
-    </Route>
-  )
-)
+// const router2 = createBrowserRouter(createRoutesFromElements(
+  
+// ))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   

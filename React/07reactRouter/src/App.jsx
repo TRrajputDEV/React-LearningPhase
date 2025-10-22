@@ -1,15 +1,6 @@
 
 import { NavLink } from "react-router-dom";
 function App() {
-    // const btn = document.getElementById('btn');
-    // btn.addEventListener('click',()=>{
-    //   document.body.classList.toggle('dark');
-    // })
-
-    
-
-
-
   return (
     <>
       <div className="mt-5 flex flex-col justify-center items-center  h-[20rem]">
