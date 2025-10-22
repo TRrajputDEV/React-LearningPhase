@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css'
 
 const App = () => {
@@ -6,44 +6,39 @@ const App = () => {
   const [length, setLength] = useState(8);
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
-  const passwordRef = useRef(null);
 
-  const generatePassword = useCallback(() => {
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-      (includeNumbers ? "0123456789" : "") +
-      (includeSymbols ? "!@#$%^&*()_+~|}{[]:;?><,./-=" : "");
+  const generatePassword = () => {
+    let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (includeNumbers) charset += "0123456789";
+    if (includeSymbols) charset += "!@#$%^&*()_+~|}{[]:;?><,./-=";
 
     let generatedPassword = "";
     for (let i = 0; i < length; i++) {
       generatedPassword += charset[Math.floor(Math.random() * charset.length)];
     }
     setPassword(generatedPassword);
-  }, [length, includeNumbers, includeSymbols]);
-
-  const copyToClipboard = () => {
-    if (passwordRef.current) {
-      navigator.clipboard.writeText(passwordRef.current.innerText);
-      alert("Password copied to clipboard!");
-    }
   };
 
-  useEffect(()=>{generatePassword()},[length,includeNumbers,includeSymbols,setPassword])
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(password);
+    alert("Password copied to clipboard!");
+  };
+
+  useEffect(() => {
+    generatePassword();
+  }, [length, includeNumbers, includeSymbols]);
 
   return (
     <div className="min-h-screen bg-slate-800 flex items-center justify-center p-4">
       <div className="bg-gray-50 shadow-2xl rounded-2xl p-8 max-w-md w-full text-center">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">Password Generator</h1>
-        <p
-          ref={passwordRef}
-          className="text-lg font-mono bg-gray-100 p-3 rounded-lg mb-4 select-all"
-        > 
+        <p className="text-lg font-mono bg-gray-100 p-3 rounded-lg mb-4 select-all">
           {password || "Your Secure Password will be displayed here"}
         </p>
 
-        {/* Modifications in password */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <label htmlFor="length" className="text-slate-900">Length:</label>
+            <label htmlFor="length" className="text-red-900">Length:</label>
             <input
               type="number"
               id="length"
@@ -55,8 +50,6 @@ const App = () => {
             />
           </div>
 
-          {/* Numbers */}
-        
           <div className="flex items-center justify-between">
             <label htmlFor="numbers" className="text-slate-900">Include Numbers:</label>
             <input
@@ -67,8 +60,6 @@ const App = () => {
               className="w-5 h-5"
             />
           </div>
-
-        {/* Symbols */}
 
           <div className="flex items-center justify-between">
             <label htmlFor="symbols" className="text-slate-900">Include Symbols:</label>
@@ -82,7 +73,6 @@ const App = () => {
           </div>
         </div>
 
-        {/* Buttons */}    
         <div className="mt-6 space-y-4 p-3 flex flex-col">
           <button
             onClick={generatePassword}
