@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import AddTodo from './components/AddTodo'
 import Todos from './components/Todos'
+import Counter from './counter'
 
 function App() {
   
@@ -12,6 +13,7 @@ function App() {
       <h1>Learn about redux toolkit</h1>
       <AddTodo />
       <Todos />
+      <Counter/>
     </>
   )
 }
