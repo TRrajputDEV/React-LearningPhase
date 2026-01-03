@@ -1,6 +1,16 @@
-import { useContext, useEffect, useState ,useRef} from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import "./App.css";
 import { createContext } from "react";
+
+// ------------------Template--------------------
+
+// export default function Home (){
+//     return (
+//         <>
+//             this is part 2
+//         </>
+//     )
+// }
 
 // counter
 // export default function Home() {
@@ -260,8 +270,6 @@ import { createContext } from "react";
 //   return <div>{user.name}</div>;
 // }
 
-
-
 // use context study here lets gooo
 
 // const Mycontext = createContext("default");
@@ -276,12 +284,10 @@ import { createContext } from "react";
 //   )
 // }
 
-
 // function Display(){
 //   const contextValue = useContext(Mycontext);
 //   return <h1>{contextValue}</h1>
 // }
-
 
 // const UserContext = createContext();
 // export default function Home() {
@@ -301,7 +307,6 @@ import { createContext } from "react";
 // // In Child (or any consumer):
 // // const { user, authstatus } = useContext(UserContext);
 
-
 // function Parent(){
 //   return <Child/>
 // }
@@ -311,10 +316,8 @@ import { createContext } from "react";
 //   const {user, authstatus} = useContext(UserContext);
 
 //   return authstatus ? <p> Onboard {user}</p>: <p>Not logged IN</p>
-    
+
 // }
-
-
 
 // const AuthContext = createContext();
 
@@ -352,7 +355,6 @@ import { createContext } from "react";
 //   return <h3>Status: {isLoggedIn ? "Logged In" : "Logged Out"}</h3>;
 // }
 
-
 // export default function Home() {
 //   const inputRef = useRef(null);
 
@@ -368,8 +370,352 @@ import { createContext } from "react";
 //   );
 // }
 
-
-
 // }
 
-h
+/* *************************************************** UNIT - 4 ****************************************************
+    Part 1 : 
+    1. Basic Form with all validation - Revise the functions again and then learn about writing form structure 
+    2. Learn about using UseRef - uncontrollable Form. 
+    Part 2 : 
+    1. Different Type of FORM = Practise all for once. 
+    2. Learn Use Reducer - for Advanced form. 
+
+*/
+
+/* Part 1 */
+
+// export default function Home() {
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     password: "",
+//     username: "",
+//   });
+
+//   const [errors, setErrors] = useState({});
+
+//   const validateForm = (values) => {
+//     // make a new obj for newErrors:
+//     const newErrors = {};
+
+//     // email verification:
+//     if (!values.email) {
+//       newErrors.email = "Email is required";
+//     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+//       newErrors.email = "Email format is Invalid";
+//     }
+
+//     //  Password verification
+
+//     if (!values.password) {
+//       newErrors.password = "Password is required";
+//     } else if (values.password.length < 8) {
+//       newErrors.password = "Password must be of 8 character ";
+//     }
+
+//     // username Verification
+
+//     if (!values.username) {
+//       newErrors.username = "Username is required";
+//     } else if (values.username.length < 3) {
+//       newErrors.username = "Username must be at least 3 characters";
+//     }
+
+//     return newErrors;
+//   };
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+
+//     // Optional: Clear error when user starts typing
+//     if (errors[name]) {
+//       setErrors((prev) => ({
+//         ...prev,
+//         [name]: "",
+//       }));
+//     }
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault(); // Prevent page reload
+
+//     const validationErrors = validateForm(formData);
+//     setErrors(validationErrors);
+
+//     // Check if form is valid
+//     if (Object.keys(validationErrors).length === 0) {
+//       console.log("Form submitted:", formData);
+//       // Process form data - API call, etc.
+//     }
+//   };
+
+//   return (
+//     <>
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <input
+//             type="email"
+//             name="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             placeholder="Email"
+//           />
+//           {errors.email && <span className="error">{errors.email}</span>}
+//         </div>
+
+//         <div>
+//           <input
+//             type="text"
+//             name="username"
+//             value={formData.username}
+//             onChange={handleChange}
+//             placeholder="Username"
+//           />
+//           {errors.username && <span className="error">{errors.username}</span>}
+//         </div>
+
+//         <div>
+//           <input
+//             type="password"
+//             name="password"
+//             value={formData.password}
+//             onChange={handleChange}
+//             placeholder="Password"
+//           />
+//           {errors.password && <span className="error">{errors.password}</span>}
+//         </div>
+
+//         <button type="submit">Submit</button>
+//       </form>
+
+//       <div>
+//         <h4> your username is: {formData.username}</h4>
+//         <h4> your username is: {formData.email}</h4>
+//         <h4> your PASSWORD is: {formData.password}</h4>
+//       </div>
+//     </>
+//   );
+// }
+
+/* Part 2 */
+// |-------------------------------------------------------------|
+// 1. Select Dropdown
+
+// export default function Home() {
+//   const [formData, setFormData] = useState({
+//     country: "",
+//   });
+//   const handleChange = (e) =>{
+//     const{name, value} = e.target;
+
+//     setFormData(prev =>({...prev, [name]: value}));
+
+//   }
+//   return (
+//     <>
+//       <select name="country" id="country" onChange={handleChange}>
+//         <option value="">select country</option>
+//         <option value="india">India</option>
+//         <option value="spain">Spain</option>
+//         <option value="Brazil">Brazil</option>
+//       </select>
+
+//     <div>
+
+//     <br />
+
+//     </div>
+
+//       {!formData.country? "Please Select a country": <span>
+//             Your Selected country is: {formData.country}
+//         </span>}
+//     </>
+//   );
+// }
+
+// 2. CheckBox
+
+// export default function Home() {
+//   const [formData, setFormData] = useState({
+//     hobbies: [], // Array to store multiple selections
+//   });
+
+//   const handleCheckboxChange = (e) => {
+//     const { value, checked } = e.target;
+
+//     if (checked) {
+//       // Add to array
+//       setFormData((prev) => ({
+//         ...prev,
+//         hobbies: [...prev.hobbies, value],
+//       }));
+//     } else {
+//       // Remove from array
+//       setFormData((prev) => ({
+//         ...prev,
+//         hobbies: prev.hobbies.filter((hobby) => hobby !== value),
+//       }));
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <label>
+//         <input
+//           type="checkbox"
+//           value="coding"
+//           checked={formData.hobbies.includes("coding")}
+//           onChange={handleCheckboxChange}
+//         />
+//         Coding
+//       </label>
+//       <label>
+//         <input
+//           type="checkbox"
+//           value="gaming"
+//           checked={formData.hobbies.includes("gaming")}
+//           onChange={handleCheckboxChange}
+//         />
+//         Gaming
+//       </label>
+//     </div>
+//   );
+// }
+
+// 3. Radio Button
+
+// export default function Home() {
+//   const [formData, setFormData] = useState({
+//     gender: "",
+//   });
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+//   };
+
+//   return (
+//     <div>
+//       <label>
+//         <input
+//           type="radio"
+//           name="gender"
+//           value="male"
+//           checked={formData.gender === "male"}
+//           onChange={handleChange}
+//         />
+//         Male
+//       </label>
+//       <label>
+//         <input
+//           type="radio"
+//           name="gender"
+//           value="female"
+//           checked={formData.gender === "female"}
+//           onChange={handleChange}
+//         />
+//         Female
+//       </label>
+//     </div>
+//   );
+// }
+
+/* -----------> Advanced Form: usin UseReduce
+
+    import React, { useReducer } from 'react';
+
+// Define initial state
+const initialState = {
+  username: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  agreeToTerms: false,
+  role: 'user'
+};
+
+// Reducer function - handles all state updates
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_FIELD':
+      return {
+        ...state,
+        [action.field]: action.value
+      };
+    case 'RESET_FORM':
+      return initialState;
+    case 'SET_MULTIPLE_FIELDS':
+      return {
+        ...state,
+        ...action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+function ComplexForm() {
+  const [formData, dispatch] = useReducer(formReducer, initialState);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    dispatch({
+      type: 'UPDATE_FIELD',
+      field: name,
+      value: type === 'checkbox' ? checked : value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form data:', formData);
+    // After successful submission
+    dispatch({ type: 'RESET_FORM' });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+      />
+      <input
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+      <input
+        name="password"
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+      <label>
+        <input
+          name="agreeToTerms"
+          type="checkbox"
+          checked={formData.agreeToTerms}
+          onChange={handleChange}
+        />
+        Agree to Terms
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+
+
+*/
+
+
+
+//|----------------------------------------------------------------|
