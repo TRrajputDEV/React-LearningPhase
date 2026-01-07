@@ -4,13 +4,13 @@ import { createContext } from "react";
 
 // ------------------Template--------------------
 
-export default function Home (){
-    return (
-        <>
-            this is part 2
-        </>
-    )
-}
+// export default function Home (){
+//     return (
+//         <>
+//             this is part 2
+//         </>
+//     )
+// }
 
 // counter
 // export default function Home() {
