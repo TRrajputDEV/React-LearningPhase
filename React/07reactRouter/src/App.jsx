@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-function App() {
+export function App() {
   return (
     <>
       <div className="mt-5 flex flex-col justify-center items-center  h-[20rem]">

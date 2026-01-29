@@ -30,3 +30,4 @@ console.log(
 );
 
 console.log(typeof(func));
+
